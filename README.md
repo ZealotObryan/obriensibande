@@ -6,8 +6,8 @@ Responsive static portfolio website with a dark navy and cyan design, profession
 - `index.html` — homepage
 - `styles.css` — responsive design system
 - `script.js` — mobile navigation, progressive enhancements and current year
-- `assets/obrien-hope-sibande.webp` / `.jpg` — professional portrait (WebP with JPEG fallback)
-- `assets/og-image.jpg` — social sharing image
+- `assets/obrien-hope-sibande.webp` — professional portrait (optimized WebP)
+- `assets/og-image.webp` — social sharing image
 - `projects/fpl-edge/index.html` — FPL Edge case study
 - `vercel.json` — deployment settings
 
