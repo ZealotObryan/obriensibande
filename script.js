@@ -36,8 +36,7 @@ const onScroll = () => {
   ticking = true;
   requestAnimationFrame(() => {
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    const scale = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-    bar.style.transform = 'scaleX(' + scale + ')';
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
     if (header) header.classList.toggle('scrolled', window.scrollY > 8);
     ticking = false;
   });
@@ -55,6 +54,7 @@ if (ticker && !reduceMotion) {
   clone.setAttribute('aria-hidden', 'true');
   ticker.textContent = '';
   ticker.append(track, clone);
+  // the two tracks sit side by side; animate both as one strip
   ticker.style.display = 'flex';
   ticker.style.whiteSpace = 'nowrap';
   ticker.querySelectorAll('.track').forEach((t) => (t.style.paddingRight = '25px'));
@@ -74,10 +74,11 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     }),
     { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
   );
-  targets.forEach((el) => {
+  targets.forEach((el, i) => {
     el.classList.add('reveal');
+    // stagger siblings (cards, stats) slightly
     const idx = [...(el.parentElement ? el.parentElement.children : [])].indexOf(el);
-    if (el.matches('.cards article, .facts li')) el.style.setProperty('--d', (idx * 0.09) + 's');
+    if (el.matches('.cards article, .facts li')) el.style.setProperty('--d', `${idx * 0.09}s`);
     io.observe(el);
   });
 }
@@ -90,13 +91,12 @@ links.forEach((a) => {
   const sec = id && document.getElementById(id);
   if (sec) map.set(sec, a);
 });
-if (map.size && 'IntersectionObserver' in window && location.pathname.replace(/\/$/, '') === '') {
+if (map.size && 'IntersectionObserver' in window && location.pathname.replace(/\/$/, '') === '' ) {
   const spy = new IntersectionObserver(
     (entries) => entries.forEach((e) => {
       if (e.isIntersecting) {
         links.forEach((l) => l.classList.remove('active'));
-        const active = map.get(e.target);
-        if (active) active.classList.add('active');
+        map.get(e.target).classList.add('active');
       }
     }),
     { rootMargin: '-45% 0px -50% 0px' }
