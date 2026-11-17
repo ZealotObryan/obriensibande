@@ -87,3 +87,120 @@ nav a.active{color:var(--accent)}
   .js .art:not(.in) .bars i{transform:none}
   .progress{display:none}
 }
+
+
+/* ===== Portfolio refinement: editorial hierarchy, clearer actions, responsive rhythm ===== */
+:root{
+  --max:1240px;
+  --g:clamp(22px,6vw,96px);
+  --surface:#0e1723;
+  --raised:#142235;
+  --border:#34485f;
+  --secondary:#d5dfeb;
+  --muted:#aebdd0;
+  --accent:#65dcff;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+body{font-size:16px;line-height:1.75;letter-spacing:.002em}
+.container{width:min(var(--max),calc(100% - 2*var(--g)))}
+header{background:rgba(8,12,18,.88);border-bottom-color:rgba(115,151,185,.22)}
+.nav{min-height:82px}
+.brand{gap:14px}
+.mark{width:38px;height:38px;display:grid;place-items:center;border-radius:11px;font-size:13px}
+.brand b{font-size:13px;letter-spacing:.055em}
+.brand small{font-size:11px;letter-spacing:.12em}
+nav{gap:clamp(18px,2.4vw,34px);align-items:center}
+nav a{font-size:14px;font-weight:600;color:#d5dfeb}
+nav a[href="#contact"]{padding:9px 15px;border:1px solid #536a82;border-radius:7px}
+nav a[href="#contact"]::after{display:none}
+nav a[href="#contact"]:hover{border-color:var(--accent);background:#65dcff12}
+.hero{min-height:690px;padding-block:clamp(64px,8vw,112px);gap:clamp(44px,7vw,100px)}
+.hero h1{font-size:clamp(58px,7vw,94px);line-height:.96;letter-spacing:-.075em}
+.eyebrow{font-size:11px;letter-spacing:.16em;margin-bottom:22px}
+.role{font-size:16px;line-height:1.6}
+.intro{font-size:clamp(17px,1.5vw,19px);line-height:1.75;max-width:570px;color:#d5dfeb}
+.primary,.secondary{min-height:48px;padding:13px 19px;border-radius:7px;font-size:14px}
+.primary{box-shadow:0 8px 26px #65dcff20}
+.secondary{background:#ffffff05}
+.meta{font-size:11px;gap:18px 28px}
+.frame{padding:13px;border-radius:16px;box-shadow:0 35px 90px #0009}
+.frame img{border-radius:8px}
+.float{border-radius:8px;background:#111d2b}
+.ticker{border-color:#34485f;background:#0b131e}
+.section{padding-block:clamp(82px,9vw,124px)}
+.section h2,.contact h2{font-size:clamp(42px,5.2vw,68px);line-height:1.02;letter-spacing:-.065em;margin-bottom:clamp(30px,4vw,48px)}
+.two{gap:clamp(38px,8vw,110px)}
+.lead{font-size:clamp(24px,2.8vw,36px);line-height:1.28;letter-spacing:-.025em}
+.two p:not(.lead){font-size:16px;line-height:1.8}
+blockquote{border-radius:0 8px 8px 0;padding:20px 22px;line-height:1.7}
+.facts{gap:12px}
+.facts li{padding:22px;border-radius:10px}
+.facts b{font-size:20px;line-height:1.25}
+.facts span{font-size:14px;line-height:1.65}
+.cards{gap:18px}
+.cards article{padding:28px;border-radius:11px;background:linear-gradient(150deg,#172638,#0c1520)}
+.cards h3{font-size:23px;line-height:1.25;margin-top:42px}
+.cards p{font-size:15px;line-height:1.75}
+.cards label{font-size:11px;line-height:1.7}
+.project{border-radius:14px;margin-bottom:22px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#0e1723}
+.project .art{min-height:clamp(310px,32vw,430px)}
+.art strong{font-size:clamp(54px,6.2vw,82px)}
+.project-copy{padding:clamp(28px,4.2vw,58px)}
+.project-copy .eyebrow{font-size:11px;margin-bottom:18px}
+.project-copy h3{font-size:clamp(32px,3.5vw,44px);line-height:1.1;letter-spacing:-.045em}
+.project-copy>p{font-size:15px;line-height:1.8}
+.project-copy>p.accent{font-size:16px;font-weight:700;line-height:1.5}
+.chips{gap:8px}
+.chips span{font-size:10px;letter-spacing:.08em;padding:6px 9px;border-radius:5px}
+.links{gap:12px 24px}
+.links a{font-size:13px}
+.project:hover{border-color:#65dcff99}
+.muted{font-size:14px;line-height:1.7}
+.contact{background:radial-gradient(ellipse at 15% 20%,#12304a 0%,#0c1724 48%,#090f18 100%)}
+.contact-card{padding:30px;border-radius:12px;background:#080e16a8}
+.contact-card a{font-weight:600}
+footer{padding:34px 0;background:#070b11;border-top:1px solid #34485f}
+.foot{font-size:11px;letter-spacing:.09em}
+a,button{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(max-width:900px){
+  .hero{min-height:0}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project{grid-template-columns:1fr}
+  .project .art{min-height:300px}
+}
+@media(max-width:620px){
+  :root{--g:22px}
+  .nav{min-height:72px}
+  .brand b{font-size:11px}
+  .brand small{font-size:10px}
+  nav{top:71px;padding:18px var(--g) 24px;gap:8px}
+  nav a{font-size:16px;padding:12px 0}
+  nav a[href="#contact"]{border:0;padding:12px 0}
+  .hero{padding-block:52px 70px;gap:38px}
+  .hero h1{font-size:clamp(54px,14vw,78px)}
+  .intro{font-size:17px}
+  .actions{display:grid;grid-template-columns:1fr 1fr}
+  .actions .primary{grid-column:1/-1}
+  .actions a{width:100%}
+  .meta{display:grid;gap:10px;margin-top:28px}
+  .portrait-wrap{width:86%}
+  .section{padding-block:76px}
+  .section h2,.contact h2{font-size:clamp(40px,11vw,56px)}
+  .two{gap:16px}
+  .facts{grid-template-columns:1fr 1fr;gap:9px}
+  .facts li{padding:15px}
+  .facts b{font-size:17px}
+  .facts span{font-size:12px}
+  .cards{gap:12px}
+  .cards article{padding:22px}
+  .project{margin-bottom:16px}
+  .project .art{min-height:250px}
+  .project-copy{padding:23px}
+  .project-copy h3{font-size:34px}
+  .links{display:grid;gap:12px}
+  .contact-card{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cards article:hover,.project:hover,.facts li:hover{transform:none}
+}
