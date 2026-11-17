@@ -204,3 +204,17 @@ a,button{-webkit-tap-highlight-color:transparent}
 @media(prefers-reduced-motion:reduce){
   .cards article:hover,.project:hover,.facts li:hover{transform:none}
 }
+
+
+/* Footer: a useful final navigation point, not just a copyright strip */
+.footer-main{display:grid;grid-template-columns:minmax(260px,1.5fr) 1fr 1fr auto;gap:38px;align-items:start;padding-block:52px 38px}
+.footer-brand p{max-width:330px;color:var(--secondary);font-size:14px;line-height:1.75;margin:18px 0 0}
+.footer-links{display:grid;gap:10px;justify-items:start}
+.footer-links small{font-size:10px;color:var(--accent);letter-spacing:.14em;margin-bottom:5px}
+.footer-links a{font-size:14px;color:var(--secondary)}
+.footer-links a:hover{color:var(--accent)}
+.back-top{font:11px var(--mono);letter-spacing:.1em;color:var(--accent);border:1px solid var(--border);border-radius:6px;padding:11px 13px;white-space:nowrap}
+.back-top:hover{border-color:var(--accent)}
+.foot{padding-top:20px;border-top:1px solid #34485f88}
+@media(max-width:800px){.footer-main{grid-template-columns:1.4fr 1fr 1fr;gap:25px}.back-top{grid-column:1/-1;justify-self:start}}
+@media(max-width:620px){.footer-main{grid-template-columns:1fr 1fr;gap:28px 18px;padding-block:38px 28px}.footer-brand{grid-column:1/-1}.footer-links{gap:8px}.back-top{grid-column:1/-1}.foot{font-size:10px}}
